@@ -1,7 +1,9 @@
 import { View, Text , StyleSheet,TextInput,TouchableOpacity,Linking} from "react-native"
-import { Link } from '@react-navigation/native';
+import { Link, useNavigation } from '@react-navigation/native';
 
 export function Login() {
+
+    const navigation = useNavigation();
     return(
         <View style={styles.container}>
             <View style={styles.top}>
@@ -11,7 +13,7 @@ export function Login() {
             <View style={styles.mid}>
                 <TextInput style={styles.textInput} placeholderTextColor={"#000"} placeholder="Nome" />
                 <TextInput style={styles.textInput} placeholderTextColor={"#000"} placeholder="Senha" />
-                <TouchableOpacity style={styles.textEsqueceu}>
+                <TouchableOpacity style={styles.textEsqueceu} onPress={() => navigation.navigate('Home')}>
                     <Text style={styles.textEsqueceu}>Esqueceu a senha?</Text>
                 </TouchableOpacity>
             </View>
